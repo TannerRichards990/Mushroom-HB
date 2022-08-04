@@ -66,13 +66,22 @@ function displayFriends() {
         //     add an event listener to each friend
         
         friendEl.addEventListener('click', () => {
-            if (friend.satisfaction < 3 && mushroomCount > 0) {
+           
+            if (mushroomCount <= 0){
+                alert('No more mushrooms. Go forage some!');
+            } else if (friend.satisfaction < 3 && mushroomCount > 0){
                 friend.satisfaction++;
                 mushroomCount--;
-                displayFriends();
-                displayMushrooms();
-            
             }
+           
+            // if (friend.satisfaction < 3 && mushroomCount > 0) {
+            //     friend.satisfaction++;
+            //     mushroomCount--;
+
+            displayFriends();
+            displayMushrooms();
+            
+            
             
             
         });
