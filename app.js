@@ -41,12 +41,15 @@ addMushroomButton.addEventListener('click', () => {
 });
 
 addFriendButton.addEventListener('click', () => {
-    const allFriends = friendInputEl.value;
-    // get the name from the input
-    // create a new friend object
-    // push it into the friends state array, passed in as an argument
-    // reset the input
-    // display all the friends (use a function here)
+    const name = friendInputEl.value;
+    const newFriend = {
+        name: name,
+        satisfaction: 1,
+
+    };
+    friendData.push(newFriend);
+    friendInputEl.textContent = '';
+    displayFriends();
 });
 
 function displayFriends() {
@@ -63,8 +66,18 @@ function displayFriends() {
         //     add an event listener to each friend
         
         friendEl.addEventListener('click', () => {
-            const newFriend = find
-        })
+            if (friend.satisfaction < 3 && mushroomCount > 0) {
+                friend.satisfaction++;
+                mushroomCount--;
+                displayFriends();
+                displayMushrooms();
+            
+            }
+            
+            
+        });
+
+        friendsEl.append(friendEl);
         
         
         
