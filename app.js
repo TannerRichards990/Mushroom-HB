@@ -45,8 +45,12 @@ addFriendButton.addEventListener('click', () => {
     const newFriend = {
         name: name,
         satisfaction: 1,
-
     };
+
+    if (newFriend.name === '') {
+        newFriend.name = Math.floor(Math.random () * 3);
+    }
+
     friendData.push(newFriend);
     friendInputEl.textContent = '';
     displayFriends();
@@ -66,24 +70,19 @@ function displayFriends() {
         //     add an event listener to each friend
         
         friendEl.addEventListener('click', () => {
-           
             if (mushroomCount <= 0){
                 alert('No more mushrooms. Go forage some!');
             } else if (friend.satisfaction < 3 && mushroomCount > 0){
                 friend.satisfaction++;
                 mushroomCount--;
             }
-           
+    
             // if (friend.satisfaction < 3 && mushroomCount > 0) {
             //     friend.satisfaction++;
             //     mushroomCount--;
 
             displayFriends();
             displayMushrooms();
-            
-            
-            
-            
         });
 
         friendsEl.append(friendEl);
